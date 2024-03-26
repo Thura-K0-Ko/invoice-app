@@ -4,6 +4,7 @@ import CheckoutForm from "./components/CheckoutForm";
 import RecordTable from "./components/RecordTable";
 import Footer from "./components/Footer";
 import ProductDrawer from "./components/ProductDrawer";
+import Test from "./components/Test";
 
 const App = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -29,12 +30,15 @@ const App = () => {
     setRecord([...records, newRecord]);
   };
 
+  const delRecord = (id) => {
+    setRecord(records.filter((record) => record.id != id));
+  };
   return (
     <div className=" max-w-[700px] px-5 lg:px-0 mx-auto min-h-screen flex flex-col dark:bg-slate-300">
       <Header />
 
       <CheckoutForm products={products} addRecord={addRecord} />
-      <RecordTable records={records} />
+      <RecordTable delRecord={delRecord} records={records} />
       <Footer handleDrawer={handleDrawer} />
       <ProductDrawer
         openDrawer={openDrawer}
@@ -42,6 +46,8 @@ const App = () => {
         addProduct={addProduct}
         products={products}
       />
+
+      {/* <Test /> */}
     </div>
   );
 };

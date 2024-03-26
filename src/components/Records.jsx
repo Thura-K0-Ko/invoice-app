@@ -1,9 +1,9 @@
 import React from "react";
 
-const Records = ({record: {name,quantity,price,cost}}) => {
+const Records = ({record: {id,name,quantity,price,cost},index,delRecord}) => {
   return (
     <tr className="group odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-      <td className="px-6 py-4 td-counter">1</td>
+      <td className="px-6 py-4 td-counter">{index+1}</td>
       <td
         scope="row"
         className="record-name px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -47,8 +47,11 @@ const Records = ({record: {name,quantity,price,cost}}) => {
         </button>
       </td>
       <td className="px-6 py-4 text-end relative">
-        <span className="record-cost">{cost}</span>
-        <button className="record-del group-hover:opacity-100 group-hover:pointer-events-auto duration-200 group-hover:left-3/4 absolute pointer-events-none opacity-0 left-full top-3 translate-x-2 active:scale-75 bg-blue-100 p-2 rounded-lg">
+        <span className="record-cost">{cost.toFixed(2)}</span>
+        <button
+      
+      onClick={()=>delRecord(id)}
+        className="record-del group-hover:opacity-100 group-hover:pointer-events-auto duration-200 group-hover:left-3/4 absolute pointer-events-none opacity-0 left-full top-3 translate-x-2 active:scale-75 bg-blue-100 p-2 rounded-lg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

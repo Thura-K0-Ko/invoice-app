@@ -1,10 +1,12 @@
-import React from "react";
+import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 
+export const GeneralContext = createContext();
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <GeneralContext.Provider value={{myname: "thura KoKo"}}>
     <App />
-  </React.StrictMode>
+  </GeneralContext.Provider>
 );

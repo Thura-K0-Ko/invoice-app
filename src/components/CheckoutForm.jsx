@@ -73,7 +73,7 @@ const CheckoutForm = ({ products, addRecord }) => {
               <option value=""></option>
               {products.map(({ id, name }) => (
                 <option key={id} value={id}>
-                  {name}
+                  {name}   
                 </option>
               ))}
             </select>
